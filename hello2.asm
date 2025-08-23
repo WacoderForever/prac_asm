@@ -1,17 +1,16 @@
+_main:
 section .data
-    message db "Hello World",10         ;string with newline
-    len equ $ - message                  ;length of message
-
+    message db "Hello, Seth", 10
+    len equ $ - message
 section .text
-    global _start
-_start:
-    mov eax,1               ;write syscall
-    mov edi,1               ;file descriptor (stdout)
-    mov esi,message         ;ponter to the messsage
-    mov edx,len             ;length of the message
+  global _start
+  _start:
+    mov rax,1       ;write syscall
+    mov rdi,1       ;stdout
+    mov rsi,message ;message to print
+    mov rdx,len     ;length of message
     syscall
 
-    mov eax,60              ;exit syscall
-    xor edi,edi
+    mov rax,60      ;exit syscall
+    xor rdi,rdi     ;return value
     syscall
-    

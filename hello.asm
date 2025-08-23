@@ -11,7 +11,7 @@ _start:
     mov     rdx,len         ; argument #3 in rdx: how many bytes to write?
     syscall                  ; this instruction invokes a system call
     mov rax,60
-    mov rdi,0
+    mov rdi,1
     syscall
 
     
