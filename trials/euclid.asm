@@ -8,7 +8,6 @@ _start:
 
     ;exit
     mov rax,SYSCALL_EXIT
-    mov rdi,0
     syscall
 
 euclid:
@@ -17,8 +16,19 @@ euclid:
     mov rbp,rsp
 
     ;load numbers
-    mov rax,26
-    mov rdi,13
+    mov rax,100
+    mov rdi,50
 
 euclid_loop:
+    xor rdx,rdx
+    ;divide numbers
+    div rdi
+    test rdx,rdx
+    jz complete
+    mov rax,rdi
+    mov rdi,rdx
+    jmp euclid_loop
     
+complete:
+    pop rbp
+    ret
