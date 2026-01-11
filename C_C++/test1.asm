@@ -1,4 +1,5 @@
 section .text
+default rel
 
 extern cpp_callback, cpp_print_message
 
@@ -92,7 +93,7 @@ asm_double_array_vals:
         jl .doubling
 
     .done:
-        lea rdi,[rel message]
+        lea rdi,[message]
         ; Call to C++ function
         call cpp_print_message
 
