@@ -11,6 +11,6 @@ echo "Compiling C++ files....."
 g++ -c test1.cpp -O2 -o test_cpp.o
 
 echo "Linking........"
-g++ test_cpp.o test_asm.o -o program 
+g++ test_cpp.o test_asm.o -o program -fPIC
 
 echo "Building complete. Run ./program to run"
