@@ -1,5 +1,7 @@
 section .text
 
+extern cpp_callback, cpp_print_message
+
 global asm_add,asm_multiply,asm_sqrt,asm_str_copy,asm_double_array_vals
 
 ; ============================================
@@ -90,13 +92,14 @@ asm_double_array_vals:
         jl .doubling
 
     .done:
-        lea rdi,[message]
+        lea rdi,[rel message]
         ; Call to C++ function
         call cpp_print_message
 
         pop r14
         pop r13
         pop r12
+        pop rbp
         ret
 
 section .data
